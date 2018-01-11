@@ -1,0 +1,35 @@
+{
+  "name": "Category",
+  "plural": "categories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "zcategoryId": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "hasMany",
+      "model": "Product",
+      "foreignKey": "categoryId"
+    },
+    "zcategory": {
+      "type": "belongsTo",
+      "model": "Zcategory",
+      "foreignKey": "zcategoryId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
