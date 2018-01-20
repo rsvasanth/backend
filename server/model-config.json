@@ -117,5 +117,11 @@
   "Authcheck": {
     "dataSource": "db",
     "public": true
+  },
+  "creditcard": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

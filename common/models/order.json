@@ -24,6 +24,11 @@
     },
     "userId": {
       "type": "string"
+    },
+    "items": {
+      "type": [
+        "Product"
+      ]
     }
   },
   "validations": [],
@@ -34,6 +39,8 @@
       "foreignKey": "userId"
     }
   },
-  "acls": [],
+  "acls": [
+
+  ],
   "methods": {}
 }

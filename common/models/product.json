@@ -40,6 +40,12 @@
     },
     "stock_status": {
       "type": "boolean"
+    },
+    "gst": {
+      "type": "number"
+    },
+    "profit_percent": {
+      "type": "number"
     }
   },
   "validations": [],

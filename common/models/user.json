@@ -37,12 +37,21 @@
       "foreignKey": "userId"
     },
     "address": {
-      "type": "embedsOne",
+      "type": "embedsMany",
       "model": "Address",
       "property": "billingAddress",
       "options": {
         "validate": true,
-        "forceId": false
+        "forceId": true
+      }
+    },
+    "creditcard": {
+      "type": "embedsMany",
+      "model": "creditcard",
+      "property": "paymentcard",
+      "options": {
+        "validate": true,
+        "forceId": true
       }
     }
   },

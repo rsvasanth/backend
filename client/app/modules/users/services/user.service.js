@@ -74,7 +74,7 @@
             }
           },
           {
-            key: 'firstName',
+            key: 'firstname',
             type: 'input',
             templateOptions: {
               label: gettextCatalog.getString('First name'),
@@ -82,7 +82,7 @@
             }
           },
           {
-            key: 'lastName',
+            key: 'lastname',
             type: 'input',
             templateOptions: {
               label: gettextCatalog.getString('Last name'),

@@ -1,0 +1,30 @@
+{
+  "name": "creditcard",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name_on_card": {
+      "type": "string"
+    },
+    "ccv": {
+      "type": "number"
+    },
+    "expiration": {
+      "type": "date"
+    },
+    "card_number": {
+      "type": "number"
+    },
+    "userId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
