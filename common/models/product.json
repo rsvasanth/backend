@@ -35,9 +35,6 @@
     "categoryId": {
       "type": "string"
     },
-    "published": {
-      "type": "boolean"
-    },
     "stock_status": {
       "type": "boolean"
     },
@@ -46,6 +43,27 @@
     },
     "profit_percent": {
       "type": "number"
+    },
+    "futures": {
+      "type": "string"
+    },
+    "supplier_ref_no": {
+      "type": "string"
+    },
+    "ref_no": {
+      "type": "string"
+    },
+    "shipping_charge": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "allow_order": {
+      "type": "boolean"
+    },
+    "supplier": {
+      "type": "string"
     }
   },
   "validations": [],

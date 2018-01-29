@@ -1,4 +1,4 @@
-<form name="form">
+<!-- <form name="form">
   <div class="panel panel-default">
     <div class="panel-heading">
       <a href="" ui-sref="^.list" class="btn btn-xs btn-default"><i class="fa fa-arrow-left"></i></a>
@@ -19,4 +19,87 @@
       <button type="button" class="btn btn-default" ng-click="ctrl.formOptions.resetModel()">Reset</button>
     </div>
   </div>
-</form>
+</form> -->
+
+  <h2>Horizontal form</h2>
+  <form class="form-horizontal" action="/action_page.php">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Product Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Description:</label>
+      <div class="col-sm-10">
+        <input type="text-area" class="form-control" id="description" placeholder="Enter Product Description" name="description">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Ref No:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Supplier Ref No:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Weight:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Futures:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Shipping Charge:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Profit Rate:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Category:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Supplier:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Qty:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember">Allow order</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>

@@ -25,32 +25,40 @@
             ]
           }
         })
+        // .state('app.products.add', {
+        //   url: '/add/:categoryId',
+        //   templateUrl: 'modules/products/views/form.html',
+        //   controllerAs: 'ctrl',
+        //   controller: function ($state, ProductsService, categories, product) {
+        //     this.categories = categories;
+        //     this.product = product;
+        //     this.formFields = ProductsService.getFormFields(categories);
+        //     this.formOptions = {};
+        //     this.submit = function () {
+        //       ProductsService.upsertProduct(this.product).then(function () {
+        //         $state.go('^.list');
+        //       });
+        //     };
+        //   },
+        //   resolve: {
+        //     categories: function (CategoriesService) {
+        //       return CategoriesService.getCategories();
+        //     },
+        //     product: function ($stateParams) {
+        //       return {
+        //         categoryId: $stateParams.categoryId
+        //       };
+        //     }
+        //   }
+        // })
+
         .state('app.products.add', {
           url: '/add/:categoryId',
           templateUrl: 'modules/products/views/form.html',
-          controllerAs: 'ctrl',
-          controller: function ($state, ProductsService, categories, product) {
-            this.categories = categories;
-            this.product = product;
-            this.formFields = ProductsService.getFormFields(categories);
-            this.formOptions = {};
-            this.submit = function () {
-              ProductsService.upsertProduct(this.product).then(function () {
-                $state.go('^.list');
-              });
-            };
-          },
-          resolve: {
-            categories: function (CategoriesService) {
-              return CategoriesService.getCategories();
-            },
-            product: function ($stateParams) {
-              return {
-                categoryId: $stateParams.categoryId
-              };
-            }
-          }
+          controller: 'productCtrl'
+
         })
+
         .state('app.products.edit', {
           url: '/:productId/edit',
           templateUrl: 'modules/products/views/form.html',
