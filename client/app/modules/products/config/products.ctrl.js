@@ -3,9 +3,16 @@
   'use strict';
   angular
     .module('com.module.products')
-    .controller('productCtrl', function ($scope, Product,Category,$state, $log) {
+    .controller('productCtrl', function ($scope,FileUploader,CoreService, Product,Category,$state, $log) {
 
-
+      $scope.uploader = new FileUploader({
+        url: CoreService.env.apiUrl + '/containers/files/upload',
+        formData: [
+          {
+            key:'value'
+          }
+        ]
+      });
       $scope.action = 'Add';
       $scope.category = [];
       $scope.selectedCategory;
@@ -33,6 +40,7 @@
           categoryId: $scope.selectedCategory.id,
             stock: $scope.product.stock,
             price: $scope.product.price,
+            image:  $scope.uploader,
           profit_percent: $scope.product.profit,
             supplier: $scope.product.supplier,
             allow_order: $scope.product.allow
