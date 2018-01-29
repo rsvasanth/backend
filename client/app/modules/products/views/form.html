@@ -21,84 +21,93 @@
   </div>
 </form> -->
 
-  <h2>Horizontal form</h2>
-  <form class="form-horizontal" action="/action_page.php">
+
+  <form class="form-horizontal" ng-submit="submitForm()" >
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Product Name:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+      <div class="col-sm-6">
+        <input   ng-model="product.name"type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Description:</label>
-      <div class="col-sm-10">
-        <input type="text-area" class="form-control" id="description" placeholder="Enter Product Description" name="description">
+      <div class="col-sm-6">
+        <input type="text-area"   ng-model="product.description" class="form-control" id="description" placeholder="Enter Product Description" name="description">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ref No:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-4">
+        <input type="text" ng-model="product.ref_no"class="form-control" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Supplier Ref No:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-4">
+        <input type="text" ng-model="product.supplier_ref_no"class="form-control" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Weight:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.weight" class="form-control" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Futures:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-6">
+            <select  ng-model="product.futures" class="form-control" >
+               <option>polish</option>
+                      <option>metal</option>
+                    <option>size</option>
+                          <option>color</option>
+                            <option>stone</option>
+             </select>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Shipping Charge:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.shipping_charge"class="form-control" >
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Profit Rate:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control">
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.profit" class="form-control">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Category:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-4">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Supplier:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-6">
+        <select  class="form-control" ng-model="product.supplier" ></select>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Qty:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" >
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.stock"class="form-control" >
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2 col-sm-6">
         <div class="checkbox">
           <label><input type="checkbox" name="remember">Allow order</label>
         </div>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-2 col-sm-6">
         <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </div>
