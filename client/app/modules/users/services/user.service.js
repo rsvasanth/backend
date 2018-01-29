@@ -88,6 +88,14 @@
               label: gettextCatalog.getString('Last name'),
               required: true
             }
+          },
+          {
+            key: 'phone',
+            type: 'input',
+            templateOptions: {
+              label: gettextCatalog.getString('phone'),
+              required: true
+            }
           }
         ];
         if (formType === 'add') {

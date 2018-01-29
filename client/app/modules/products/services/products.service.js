@@ -123,7 +123,9 @@
             key: 'image',
             type: 'input',
             templateOptions: {
-              label: gettextCatalog.getString('Picture')
+                type: 'file',
+              label: gettextCatalog.getString('Picture'),
+            url: CoreService.env.apiUrl + '/containers/files/upload'
             }
           }
         ];

@@ -36,7 +36,13 @@ module.exports = function(app) {
         lastName: 'User',
         email: 'user@user.com',
         username: 'user',
-        password: 'user'
+        password: 'user',
+        billingAddress:[  {
+        "street": "string",
+        "city": "string",
+        "state": "string",
+        "zipcode": "string"
+      }]
       }]
     }];
 

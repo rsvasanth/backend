@@ -17,7 +17,7 @@
       "type": "string"
     },
     "zipcode": {
-      "type": "string"
+      "type": "number"
     }
   },
   "validations": [],

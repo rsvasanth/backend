@@ -44,7 +44,9 @@
       'com.module.sandbox',
       'com.module.settings',
       'com.module.users',
-      'com.module.orders'
+      'com.module.orders',
+      'com.module.shipment',
+      'com.module.payment'
     ])
     .run(function ($rootScope, $cookies, gettextCatalog) {
 

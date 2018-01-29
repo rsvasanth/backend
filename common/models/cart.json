@@ -8,7 +8,7 @@
   },
   "properties": {
     "created": {
-      "type": "string"
+      "type": "date"
     },
     "items": {
       "type": "object"
