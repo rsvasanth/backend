@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Users
+    Vendors
     <span class="pull-right btn-group">
       <a href="" class="btn btn-xs btn-success" ui-sref="^.add()">
         <i class="fa fa-plus"></i>
@@ -9,7 +9,7 @@
   </div>
 
   <div class='list-group'>
-    <div ng-repeat="user in ctrl.users" class="list-group-item">
+    <div ng-repeat="user in ctrl.users | filter: { user_type:'vendor' }" class="list-group-item">
       <span class="pull-right btn-group">
         <a class="btn btn-xs btn-default" ui-sref="app.users.password({ id: user.id })">
           <i class="fa fa-key"></i>
@@ -26,7 +26,7 @@
       </h4>
       {{user.username}}
       <span class="text-muted">{{user.email}}</span>
-      <span ng-repeat="role in user.role" class="label label-default">{{role.name}}</span>
+      <span ng-repeat="role in user.roles" class="label label-default">{{role.name}}</span>
 
     </div>
   </div>
