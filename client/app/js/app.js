@@ -47,7 +47,8 @@
       'com.module.orders',
       'com.module.shipment',
       'com.module.payment',
-      'com.module.vendors'
+      'com.module.vendors',
+      'com.module.customer'
     ])
     .run(function ($rootScope, $cookies, gettextCatalog) {
 

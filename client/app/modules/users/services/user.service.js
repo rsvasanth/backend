@@ -88,8 +88,12 @@ this.find = function () {
           "value": "vendor"
         },
         {
-          "name": "users",
-          "value": "users"
+          "name": "customer",
+          "value": "customer"
+        },
+                  {
+          "name": "staff",
+          "value": "staff"
         }
       ]
             }
