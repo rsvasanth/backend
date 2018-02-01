@@ -1,6 +1,7 @@
 <div class="panel panel-default" ng-repeat="category in ctrl.categories">
   <div class="panel-heading">
-    {{category.name}}
+    <span class="label label-danger">{{category.name}}</span>
+          <img src="{{category.image}}" class=" img-circle" height="40px" width="40px" alt="User Image">
     <span class="pull-right">
       <span class="btn-group">
         <a href="" class="btn btn-xs btn-default" ui-sref="^.editcategory({categoryId: category.id})" title="Edit category">

@@ -108,27 +108,7 @@
         .state('app.products.editcategory', {
           url: '/editcategory/:categoryId',
           templateUrl: 'modules/products/views/categoryform.html',
-          controllerAs: 'ctrl',
-          controller: function ($state, CategoriesService,zcategory, category) {
-            this.zcategory = zcategory;
-            this.category = category;
-              console.log(category);
-            this.formFields = CategoriesService.getFormFields(zcategory);
-            this.formOptions = {};
-            this.submit = function () {
-              CategoriesService.upsertCategory(this.category).then(function () {
-                $state.go('^.list');
-              });
-            };
-          },
-          resolve: {
-            category: function ($stateParams, CategoriesService) {
-              return CategoriesService.getCategory($stateParams.categoryId);
-            },
-            zcategory: function ($stateParams, CategoriesService) {
-              return CategoriesService.getZcategories();
-            }
-          }
+          controller: 'editcategoryCtrl'
         })
         .state('app.products.deletecategory', {
           url: '/category/:categoryId/delete',

@@ -23,7 +23,7 @@
 </form>
 -->
 
-<form class="form-horizontal" ng-submit="submitCatForm()" >
+<form class="form-horizontal" ng-submit="submitForm()" >
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Category Name:</label>
       <div class="col-sm-6">
@@ -37,17 +37,17 @@
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="selectedZcategory"
-            ng-options="cat as cat.name for cat in zcat"></select>
+            ng-options="cat as cat.name for cat in zcategory"></select>
       </div>
     </div>
  
     <div class="form-group ">
-     <label class="control-label " for="url">
+     <label class="control-label  col-sm-2 " for="url">
     Photo
      </label>
  <input type="file" photo-file="category.image"  onchange="angular.element(this).scope().previewPhoto(event)"/>
     </div>
-    <div class="">
+    <div class=" col-sm-8">
       <img ng-src="{{photo}}" class="img-rounded"  width="150" height="150" style="margin-bottom:20px">
 
     </div>

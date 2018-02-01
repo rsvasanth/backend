@@ -103,6 +103,50 @@ reader.readAsDataURL(file);
         });
     };
 
+    }).controller('editcategoryCtrl', function ($scope,$q,$stateParams,CoreService,Product, Zcategory,Category,$state, $log) {
+            $scope.action = 'Edit';
+      $scope.zcategory = [];
+      $scope.selectedZcategory;
+      $scope.category = {};
+      $scope.isDisabled = false;
+    $scope.previewPhoto =function(event){
+var files = event.target.files;
+var file = files[files.length-1];
+var reader = new FileReader();
+reader.onload = function (e) {
+  $scope.$apply(function() {
+    $scope.photo = e.target.result;
+  })
+}
+reader.readAsDataURL(file);
+};
+         $q
+      .all([
+      Zcategory.find().$promise,
+       Category.findById({ id: $stateParams.categoryId }).$promise
+      ])
+      .then(function(data) {
+        console.log('this is data from cate edit',data)
+        var zcategory = $scope.zcategory = data[0];
+        $scope.category= data[1];
+        $scope.selectedZcategory;
+
+        var selectedZcategoryIndex = zcategory
+          .map(function(zcategory) {
+            return zcategory.id;
+          })
+          .indexOf($scope.category.zcategoryId);
+        $scope.selectedZcategory = zcategory[selectedZcategoryIndex];
+      });
+          $scope.submitForm = function() {
+     $scope.category.image = $scope.photo;
+      $scope.category.zcategoryId = $scope.selectedZcategory.id;
+      $scope.category
+        .$save()
+        .then(function(category) {
+          $state.go('^.list');
+        });
+    };
     })
 
 })();
