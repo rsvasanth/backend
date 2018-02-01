@@ -29,26 +29,7 @@ module.exports = function(app) {
         username: 'admin',
         password: 'admin'
       }]
-    }, {
-      name: 'users',
-      users: [{
-        firstName: 'Guest',
-        lastName: 'User',
-        email: 'user@user.com',
-        username: 'user',
-        password: 'user'
-
-      }]
-    }, {
-      name: 'vendor',
-      users: [{
-        firstName: 'Guest',
-        lastName: 'User',
-        email: 'vendor@user.com',
-        username: 'vendor',
-        password: 'vendor'
-
-      }]
+    }]
     }];
 
     roles.forEach(function(role) {
