@@ -22,12 +22,14 @@
         </a>
       </span>
       <h4>
-        <a href="" ui-sref="app.users.view({id: user.id})">{{user.firstName}} {{user.lastName}}</a>
+        <a href="" ui-sref="app.users.view({id: user.id})">{{user.firstname}} {{user.lastname}}</a>
+         
       </h4>
-      {{user.username}}
-      <span class="text-muted">{{user.email}}</span>
+      <span  class="label label-success" ui-sref="app.users.view({id: user.id})">{{user.email}} </span>
+   
       <span ng-repeat="role in user.roles" class="label label-default">{{role.name}}</span>
-
+        <span  class="label label-default"><span  class="label label-black">Joined Date:</span>{{user.created | date : 'fullDate'}}</span>
+          <span  class="btn-group"><span  class="label label-success"><label class="label label-warning">Status:</label> {{user.status}}</span></span>
     </div>
   </div>
 </div>

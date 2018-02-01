@@ -4,13 +4,14 @@ module.exports = function (user) {
 var app = require('../../server/server');
 
   // Set the username to the users email address by default.
-  user.observe('after save', function setDefaultUsername(ctx, next) {
+  user.observe('before save', function setDefaultUsername(ctx, next) {
   var Role = app.models.Role;
   var RoleMapping = app.models.RoleMapping;
 
     if (ctx.instance) {
       if(ctx.isNewInstance) {
         ctx.instance.username = ctx.instance.email;
+   
           console.log(ctx.instance.id);
             console.log(ctx.instance.user_type);
       Role.find({where: {name: ctx.instance.user_type}}, function(err, role) {
