@@ -62,26 +62,8 @@
         .state('app.products.edit', {
           url: '/:productId/edit',
           templateUrl: 'modules/products/views/form.html',
-          controllerAs: 'ctrl',
-          controller: function ($state, ProductsService, categories, product) {
-            this.categories = categories;
-            this.product = product;
-            this.formFields = ProductsService.getFormFields(categories);
-            this.formOptions = {};
-            this.submit = function () {
-              ProductsService.upsertProduct(this.product).then(function () {
-                $state.go('^.list');
-              });
-            };
-          },
-          resolve: {
-            categories: function (CategoriesService) {
-              return CategoriesService.getCategories();
-            },
-            product: function ($stateParams, ProductsService) {
-              return ProductsService.getProduct($stateParams.productId);
-            }
-          }
+          controller:'editproductCtrl'
+      
         })
         .state('app.products.addcategory', {
           url: '/addcategory',

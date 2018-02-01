@@ -8,7 +8,7 @@
    * # home
    */
   angular
-    .module('com.module.product')
+    .module('com.module.products')
     .directive('photoFile', ['$parse', function($parse){
     	return {
     		restrict: 'A',

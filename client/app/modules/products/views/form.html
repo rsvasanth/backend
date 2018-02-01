@@ -111,6 +111,7 @@
  <input type="file" photo-file="product.image"  onchange="angular.element(this).scope().previewPhoto(event)"/>
     </div>
     <div class="">
+         <img ng-src="{{product.image }}" ng-if="!photo" class="img-rounded"  width="150" height="150" style="margin-bottom:20px">
       <img ng-src="{{photo}}" class="img-rounded"  width="150" height="150" style="margin-bottom:20px">
 
     </div>
