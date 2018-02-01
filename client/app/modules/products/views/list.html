@@ -34,11 +34,12 @@
         <a href="" ui-sref="^.view({productId: product.id})" style="margin-left: 10px;">{{product.name}}</a>
         <small>{{product.description}}</small>
         <div class="pull-right">
-            <span class="label label-danger">{{product.published}}</span>
+            <span class="label label-danger">{{product.allow_order}} </span>
                     <span class="label label-success">{{product.stock}}</span>
                   <span class="label label-warning">{{product.profit}}&#37;-PROFIT RATE</span>
               <span class="label label-success">{{product.gst}}&#37;-GST</span>
           <span class="label label-default">{{product.price}}</span>
+            <span class="label label-default"><span class="label label-default">Sale price</span>{{product.price*product.profit/100+product.price | number:2}}</span>
           <a href="" class="btn btn-xs btn-default" ui-sref="^.edit({productId: product.id})">
             <i class="fa fa-pencil"></i>
           </a>

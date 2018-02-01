@@ -46,7 +46,7 @@ reader.readAsDataURL(file);
             image:$scope.photo,
           profit_percent: $scope.product.profit,
             supplier: $scope.product.supplier,
-            allow_order: $scope.product.allow
+            allow_order: $scope.product.allow_order
           })
           .$promise
           .then(function() {
