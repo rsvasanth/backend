@@ -29,7 +29,6 @@ module.exports = function(app) {
         username: 'admin',
         password: 'admin'
       }]
-    }]
     }];
 
     roles.forEach(function(role) {
