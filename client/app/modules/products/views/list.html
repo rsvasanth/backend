@@ -26,7 +26,10 @@
     <tbody>
     <tr ng-repeat="product in category.products">
       <th>
-        <a href="" ui-sref="^.view({productId: product.id})">{{product.name}}</a>
+          <div class="pull-left">
+              <img class="img-thumbnail" height="75px" width="75px" src="{{product.image}}" alt="">
+          </div>
+        <a href="" ui-sref="^.view({productId: product.id})" style="margin-left: 10px;">{{product.name}}</a>
         <small>{{product.description}}</small>
         <div class="pull-right">
             <span class="label label-danger">{{product.published}}</span>

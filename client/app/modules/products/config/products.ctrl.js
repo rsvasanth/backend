@@ -11,7 +11,17 @@
       $scope.selectedCategory;
       $scope.product = {};
       $scope.isDisabled = false;
-
+$scope.previewPhoto =function(event){
+var files = event.target.files;
+var file = files[files.length-1];
+var reader = new FileReader();
+reader.onload = function (e) {
+  $scope.$apply(function() {
+    $scope.photo = e.target.result;
+  })
+}
+reader.readAsDataURL(file);
+};
       Category
         .find()
         .$promise
@@ -34,6 +44,7 @@
             stock: $scope.product.stock,
             price: $scope.product.price,
               gst: $scope.product.gst,
+            image:$scope.photo,
           profit_percent: $scope.product.profit,
             supplier: $scope.product.supplier,
             allow_order: $scope.product.allow
