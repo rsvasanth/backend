@@ -3,11 +3,12 @@
   'use strict';
   angular
     .module('com.module.products')
-    .controller('productCtrl', function ($scope,CoreService, Product,Category,$state, $log) {
+    .controller('productCtrl', function ($scope,CoreService, vendorService,Product,Category,$state, $log) {
       $scope.action = 'Add';
       $scope.category = [];
       $scope.selectedCategory;
       $scope.product = {};
+      $scope.vendor = [];
       $scope.isDisabled = false;
 $scope.previewPhoto =function(event){
 var files = event.target.files;
@@ -20,6 +21,9 @@ reader.onload = function (e) {
 }
 reader.readAsDataURL(file);
 };
+vendorService.find().then((result)=>{
+  $scope.vendor = result;
+})
       Category
         .find()
         .$promise
@@ -27,7 +31,7 @@ reader.readAsDataURL(file);
           $scope.category = categories;
           $scope.selectedCategory = $scope.selectedCategory || categories[0];
         });
-    
+
 
       $scope.submitForm = function() {
         Product
@@ -60,7 +64,7 @@ reader.readAsDataURL(file);
       $scope.selectedCategory;
       $scope.product = {};
       $scope.isDisabled = false;
-      
+
 $scope.previewPhoto =function(event){
 var files = event.target.files;
 var file = files[files.length-1];
@@ -72,8 +76,8 @@ reader.onload = function (e) {
 }
 reader.readAsDataURL(file);
 };
- 
-      
+
+
     $q
       .all([
       Category.find().$promise,
@@ -92,7 +96,7 @@ reader.readAsDataURL(file);
           .indexOf($scope.product.categoryId);
         $scope.selectedCategory = category[selectedCategoryIndex];
       });
-      
+
           $scope.submitForm = function() {
      $scope.product.image = $scope.photo;
       $scope.product.categoryId = $scope.selectedCategory.id;
@@ -103,7 +107,47 @@ reader.readAsDataURL(file);
         });
     };
 
-    }).controller('editcategoryCtrl', function ($scope,$q,$stateParams,CoreService,Product, Zcategory,Category,$state, $log) {
+  })    .controller('categoryaddCtrl', function ($scope,$q,$stateParams,CoreService, Zcategory,Category,$state, $log) {
+
+    $scope.action = 'Edit';
+$scope.zcategory = [];
+$scope.selectedZcategory;
+$scope.category = {};
+$scope.isDisabled = false;
+$scope.previewPhoto =function(event){
+var files = event.target.files;
+var file = files[files.length-1];
+var reader = new FileReader();
+reader.onload = function (e) {
+$scope.$apply(function() {
+$scope.photo = e.target.result;
+})
+}
+reader.readAsDataURL(file);
+};
+Zcategory
+  .find()
+  .$promise
+  .then(function(zcategories) {
+    $scope.zcategory = zcategories;
+    $scope.selectedZcategory = $scope.selectedZcategory || categories[0];
+  });
+
+
+$scope.submitForm = function() {
+Category
+    .create({
+      name: $scope.category.name,
+    zcategoryId: $scope.selectedZcategory.id,
+      image:$scope.photo,
+
+    })
+    .$promise
+    .then(function() {
+      $state.go('^.list');
+    });
+};
+        })     .controller('editcategoryCtrl', function ($scope,$q,$stateParams,CoreService,Product, Zcategory,Category,$state, $log) {
             $scope.action = 'Edit';
       $scope.zcategory = [];
       $scope.selectedZcategory;

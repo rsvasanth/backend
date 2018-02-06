@@ -69,20 +69,21 @@
       <label class="control-label col-sm-2" for="pwd">Shipping Charge:</label>
       <div class="col-sm-2">
         <input type="text" ng-model="product.shipping_charge"class="form-control" >
+
       </div>
-    </div>
-    <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Profit Rate:</label>
       <div class="col-sm-2">
         <input type="text" ng-model="product.profit" class="form-control">
       </div>
-    </div>
-         <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Tax (GST) Rate:</label>
       <div class="col-sm-2">
         <input type="text" ng-model="product.gst" class="form-control">
       </div>
-    </div> 
+    </div>
+
+         <div class="form-group">
+
+    </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Category:</label>
       <div class="col-sm-4">
@@ -95,7 +96,10 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Supplier:</label>
       <div class="col-sm-6">
-        <select  class="form-control" ng-model="product.supplier" ></select>
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedvendor"
+            ng-options="ven as ven.email for ven in vendor| filter: { user_type:'vendor' }"></select>
       </div>
     </div>
     <div class="form-group">

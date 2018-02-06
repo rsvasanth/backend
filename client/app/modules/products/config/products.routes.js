@@ -63,33 +63,13 @@
           url: '/:productId/edit',
           templateUrl: 'modules/products/views/form.html',
           controller:'editproductCtrl'
-      
+
         })
         .state('app.products.addcategory', {
           url: '/addcategory',
           templateUrl: 'modules/products/views/categoryform.html',
-          controllerAs: 'ctrl',
-          controller: function ($state, CategoriesService,zcategory, category) {
-    this.zcategory = zcategory;
-            this.category = category;
+    controller:'categoryaddCtrl'
 
-            this.formFields = CategoriesService.getFormFields(zcategory);
-            this.formOptions = {};
-            this.submit = function () {
-              CategoriesService.upsertCategory(this.category).then(function () {
-                $state.go('^.list');
-              });
-            };
-          },
-          resolve: {
-            zcategory: function (CategoriesService) {
-            return CategoriesService.getZcategories();
-          },
-            category: function () {
-              return {};
-            }
-
-          }
         })
         .state('app.products.view', {
           url: '/:productId',
