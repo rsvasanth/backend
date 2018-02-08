@@ -29,6 +29,9 @@
       "type": [
         "Product"
       ]
+    },
+    "shipment_status": {
+      "type": "boolean"
     }
   },
   "validations": [],

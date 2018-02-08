@@ -15,6 +15,7 @@ Orders
       <a href="" class="btn btn-xs btn-danger" ui-sref="^.delete({id: item.id})">
         <i class="fa fa-trash-o"></i>
       </a>
+
     </span>
     <label for="Order Id">Order Description:</label>
       <h4 class="list-group-item-heading">
@@ -33,6 +34,7 @@ Orders
   <label for="Order Id"> Order Amount:</label>  <p class="list-group-item-text">{{item.amount}}</p>
 
          <label for="Order Id">   Payment Status: :</label>        <p class="list-group-item-text">{{item.payment_status}}</p>
+                 <label for="Order Id">   Shipment Status: :</label>          <span class="btn btn-danger">Not Shipped</span>
     </div>
     <div ng-show="!ctrl.orders.length" class="list-group-item">
       <h4 class="list-group-item-heading" translate>

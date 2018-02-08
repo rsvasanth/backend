@@ -48,6 +48,12 @@ vendorService.find().then((result)=>{
             price: $scope.product.price,
               gst: $scope.product.gst,
             image:$scope.photo,
+            metal_finish:$scope.product.metal_finish,
+            meterial_finish:$scope.product.meterial_finish,
+            earring_size:$scope.product.earring_size,
+            stone_color:$scope.product.stone_color,
+            necklace_length:$scope.product.necklace_length,
+            accessories:$scope.product.accessories,
           profit_percent: $scope.product.profit,
             supplier: $scope.product.supplier,
             allow_order: $scope.product.allow_order

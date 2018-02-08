@@ -36,6 +36,12 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Price:</label>
+      <div class="col-sm-4">
+        <input type="text" ng-model="product.price"class="form-control" >
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Ref No:</label>
       <div class="col-sm-4">
         <input type="text" ng-model="product.ref_no"class="form-control" >
@@ -54,17 +60,38 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Futures:</label>
-      <div class="col-sm-6">
-            <select  ng-model="product.futures" class="form-control" >
-               <option>polish</option>
-                      <option>metal</option>
-                    <option>size</option>
-                          <option>color</option>
-                            <option>stone</option>
-             </select>
+      <label class="control-label col-sm-2" for="pwd">Product Futures:</label>
+        <label><input type="checkbox" ng-model="product.futures" name="futures"></label>
+    </div>
+    <div  ng-show="product.futures"class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Metal Finish:</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.metal_finish"class="form-control" >
+
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Material(Type):</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.material_type" class="form-control">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Earring Size:</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.earring_size" class="form-control">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Stone Color:</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.stone_color" class="form-control">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Necklace Length(W/O Thread/Chain):</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.necklace_length" class="form-control">
+      </div>
+      <label class="control-label col-sm-2" for="pwd">Accessories(Findings)</label>
+      <div class="col-sm-2">
+        <input type="text" ng-model="product.accessories" class="form-control">
       </div>
     </div>
+
+
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Shipping Charge:</label>
       <div class="col-sm-2">
