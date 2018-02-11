@@ -22,6 +22,46 @@ module.exports = function(app) {
         'skin-blue',
         'skin-black'
       ]
+    },{
+      type: 'select',
+      key: 'metalFinish',
+      value: 'skin-blue',
+      options: [
+        'skin-blue',
+        'skin-black'
+      ]
+    },{
+      type: 'select',
+      key: 'metalType',
+      value: 'skin-blue',
+      options: [
+        'skin-blue',
+        'skin-black'
+      ]
+    },{
+      type: 'select',
+      key: 'earringSize',
+      value: 'skin-blue',
+      options: [
+        'skin-blue',
+        'skin-black'
+      ]
+    },{
+      type: 'select',
+      key: 'stoneColor',
+      value: 'skin-blue',
+      options: [
+        'skin-blue',
+        'skin-black'
+      ]
+    },{
+      type: 'select',
+      key: 'necklaceLength',
+      value: 'skin-blue',
+      options: [
+        'skin-blue',
+        'skin-black'
+      ]
     }, {
       type: 'select',
       key: 'appLayout',

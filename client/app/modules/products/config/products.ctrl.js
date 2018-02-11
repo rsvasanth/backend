@@ -3,13 +3,16 @@
   'use strict';
   angular
     .module('com.module.products')
-    .controller('productCtrl', function ($scope,CoreService, vendorService,Product,Category,$state, $log) {
+    .controller('productCtrl', function ($scope,CoreService,SettingService, vendorService,Product,Category,$state, $log) {
       $scope.action = 'Add';
       $scope.category = [];
       $scope.selectedCategory;
       $scope.product = {};
       $scope.vendor = [];
       $scope.isDisabled = false;
+      $scope.metalType=[];
+      $scope.metalFinish=[];
+
 $scope.previewPhoto =function(event){
 var files = event.target.files;
 var file = files[files.length-1];
@@ -21,6 +24,9 @@ reader.onload = function (e) {
 }
 reader.readAsDataURL(file);
 };
+SettingService.find().then((result)=>{
+  $scope.metalFinish = result.metalFinish;
+})
 vendorService.find().then((result)=>{
   $scope.vendor = result;
 })

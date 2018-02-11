@@ -66,28 +66,46 @@
     <div  ng-show="product.futures"class="form-group">
       <label class="control-label col-sm-2" for="pwd">Metal Finish:</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.metal_finish"class="form-control" >
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="metalFinish"
+            ng-options="cat as cat.id for cat in metalFinish"></select>
 
       </div>
       <label class="control-label col-sm-2" for="pwd">Material(Type):</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.material_type" class="form-control">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Earring Size:</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.earring_size" class="form-control">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Stone Color:</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.stone_color" class="form-control">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Necklace Length(W/O Thread/Chain):</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.necklace_length" class="form-control">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Accessories(Findings)</label>
       <div class="col-sm-2">
-        <input type="text" ng-model="product.accessories" class="form-control">
+        <select class="form-control"
+            ng-disabled="isDisabled"
+            ng-model="selectedCategory"
+            ng-options="cat as cat.name for cat in category"></select>
       </div>
     </div>
 
