@@ -119,7 +119,37 @@ reader.readAsDataURL(file);
         });
     };
 
-  })    .controller('categoryaddCtrl', function ($scope,$q,$stateParams,CoreService, Zcategory,Category,$state, $log) {
+  })  .controller('zcategoryaddCtrl', function ($scope,$q,$stateParams,CoreService, Zcategory,Category,$state, $log) {
+
+    $scope.action = 'Add';
+
+$scope.previewPhoto =function(event){
+var files = event.target.files;
+var file = files[files.length-1];
+var reader = new FileReader();
+reader.onload = function (e) {
+$scope.$apply(function() {
+$scope.photo = e.target.result;
+})
+}
+reader.readAsDataURL(file);
+};
+
+
+
+$scope.submitForm = function() {
+Zcategory
+    .create({
+      name: $scope.category.name,
+      image:$scope.photo,
+
+    })
+    .$promise
+    .then(function() {
+      $state.go('^.list');
+    });
+};
+        })   .controller('categoryaddCtrl', function ($scope,$q,$stateParams,CoreService, Zcategory,Category,$state, $log) {
 
     $scope.action = 'Edit';
 $scope.zcategory = [];

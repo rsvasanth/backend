@@ -10,14 +10,16 @@
     "created": {
       "type": "date"
     },
-    "items": {
-      "type": "object"
-    },
     "userId": {
       "type": "string"
     },
     "status": {
       "type": "string"
+    },
+    "items": {
+      "type": [
+        "Product"
+      ]
     }
   },
   "validations": [],

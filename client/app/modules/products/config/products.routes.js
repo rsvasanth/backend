@@ -70,6 +70,11 @@
           templateUrl: 'modules/products/views/categoryform.html',
     controller:'categoryaddCtrl'
 
+        })     .state('app.products.addzcategory', {
+          url: '/addzcategory',
+          templateUrl: 'modules/products/views/zcategoryform.html',
+    controller:'zcategoryaddCtrl'
+
         })
         .state('app.products.view', {
           url: '/:productId',
