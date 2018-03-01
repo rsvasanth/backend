@@ -10,9 +10,6 @@
     "created": {
       "type": "date"
     },
-    "fullfillment_status": {
-      "type": "string"
-    },
     "description": {
       "type": "string"
     },
@@ -32,6 +29,9 @@
     },
     "shipment_status": {
       "type": "boolean"
+    },
+    "payment_type": {
+      "type": "string"
     }
   },
   "validations": [],

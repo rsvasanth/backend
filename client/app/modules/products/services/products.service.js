@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('com.module.products')
-    .service('ProductsService', function (CoreService, Product, gettextCatalog) {
+    .service('ProductsService', function (CoreService, Product, Futures,gettextCatalog) {
 
       this.getProducts = function () {
         return Product.find({
@@ -11,7 +11,11 @@
           }
         }).$promise;
       };
-
+      this.getFutures = function () {
+        return Futures.find({
+        
+        }).$promise;
+      };
       this.getProduct = function (id) {
         return Product.findById({
           id: id

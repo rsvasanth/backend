@@ -123,5 +123,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "Futures": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

@@ -69,44 +69,45 @@
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="metalFinish"
-            ng-options="cat as cat.id for cat in metalFinish"></select>
+            ng-options="item as item for item in metalfinish "></select>
 
       </div>
       <label class="control-label col-sm-2" for="pwd">Material(Type):</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
-            ng-model="selectedCategory"
-            ng-options="cat as cat.name for cat in category"></select>
+            ng-model="materialType"
+              ng-options="item as item for item in metaltype "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Earring Size:</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
-            ng-model="selectedCategory"
-            ng-options="cat as cat.name for cat in category"></select>
+            ng-model="earringSize"
+              ng-options="item as item for item in earringsize "></select>
       </div>
-      <label class="control-label col-sm-2" for="pwd">Stone Color:</label>
+      <label class="control-label col-sm-2" for="pwd">Stone Type:</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
-            ng-model="selectedCategory"
-            ng-options="cat as cat.name for cat in category"></select>
+            ng-model="stoneType"
+            ng-options="item as item for item in stonetype "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Necklace Length(W/O Thread/Chain):</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
-            ng-model="selectedCategory"
-            ng-options="cat as cat.name for cat in category"></select>
+            ng-model="necklaceLength"
+            ng-options="item as item for item in necklacelength "></select>
       </div>
-      <label class="control-label col-sm-2" for="pwd">Accessories(Findings)</label>
+      <label class="control-label col-sm-2" for="pwd">Stone Color</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
-            ng-model="selectedCategory"
-            ng-options="cat as cat.name for cat in category"></select>
+            ng-model="stoneColor"
+            ng-options="item as item for item in stonecolor "></select>
       </div>
+
     </div>
 
 

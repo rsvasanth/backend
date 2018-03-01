@@ -3,15 +3,20 @@
   'use strict';
   angular
     .module('com.module.products')
-    .controller('productCtrl', function ($scope,CoreService,SettingService, vendorService,Product,Category,$state, $log) {
+    .controller('productCtrl', function ($scope,CoreService,SettingService, vendorService,Product,Futures,Category,$state, $log) {
       $scope.action = 'Add';
       $scope.category = [];
       $scope.selectedCategory;
       $scope.product = {};
       $scope.vendor = [];
       $scope.isDisabled = false;
-      $scope.metalType=[];
-      $scope.metalFinish=[];
+      $scope.metaltype=[];
+      $scope.metal_finish=[];
+      $scope.stonecolor=[];
+      $scope.earringsize=[];
+      $scope.necklacelength=[];
+      $scope.accessories=[];
+        $scope.stonetype=[];
 
 $scope.previewPhoto =function(event){
 var files = event.target.files;
@@ -24,11 +29,25 @@ reader.onload = function (e) {
 }
 reader.readAsDataURL(file);
 };
-SettingService.find().then((result)=>{
-  $scope.metalFinish = result.metalFinish;
+Futures.
+find().$promise.then((result)=>{
+  $scope.metalfinish = result[0].options;
+  $scope.metaltype=result[1].options;
+  $scope.stonecolor=result[3].options;
+    $scope.stonetype=result[4].options;
+  $scope.earringsize=result[2].options;
+  $scope.necklacelength=result[5].options;
+  $scope.accessories=[];
+  console.log($scope.metalfinish);
 })
 vendorService.find().then((result)=>{
   $scope.vendor = result;
+})
+
+Futures
+.find().$promise.then((futures)=>{
+  $scope.futures=futures;
+  console.log($scope.futures);
 })
       Category
         .find()
@@ -54,11 +73,12 @@ vendorService.find().then((result)=>{
             price: $scope.product.price,
               gst: $scope.product.gst,
             image:$scope.photo,
-            metal_finish:$scope.product.metal_finish,
-            meterial_finish:$scope.product.meterial_finish,
-            earring_size:$scope.product.earring_size,
-            stone_color:$scope.product.stone_color,
-            necklace_length:$scope.product.necklace_length,
+            metal_finish:$scope.metalFinish,
+            meterial_type:$scope.meterialType,
+            earring_size:$scope.earringSize,
+            stone_color:$scope.stoneColor,
+            necklace_length:$scope.necklaceLength,
+            stone_type:$scope.stoneType,
             accessories:$scope.product.accessories,
           profit_percent: $scope.product.profit,
             supplier: $scope.product.supplier,
@@ -70,10 +90,12 @@ vendorService.find().then((result)=>{
           });
       };
 
-    })     .controller('editproductCtrl', function ($scope,$q,$stateParams,CoreService, Product,Category,$state, $log) {
+    })     .controller('editproductCtrl', function ($scope,$q,$stateParams,CoreService,Futures, Product,Category,$state, $log) {
       $scope.action = 'Edit';
       $scope.category = [];
       $scope.selectedCategory;
+      $scope.metalFinish;
+      $scope.futures=[];
       $scope.product = {};
       $scope.isDisabled = false;
 
@@ -93,14 +115,17 @@ reader.readAsDataURL(file);
     $q
       .all([
       Category.find().$promise,
-       Product.findById({ id: $stateParams.productId }).$promise
+       Product.findById({ id: $stateParams.productId }).$promise,
+       Futures.find().$promise
       ])
       .then(function(data) {
         console.log('this is data from product edit',data)
         var category = $scope.category = data[0];
         $scope.product= data[1];
+        $scope.futures = data[2];
         $scope.selectedCategory;
-
+        $scope.metalFinish = $scope.futures[0].options;
+  console.log('this is data from product edit',$scope.futures[0].options)
         var selectedCategoryIndex = category
           .map(function(category) {
             return category.id;
@@ -108,6 +133,7 @@ reader.readAsDataURL(file);
           .indexOf($scope.product.categoryId);
         $scope.selectedCategory = category[selectedCategoryIndex];
       });
+
 
           $scope.submitForm = function() {
      $scope.product.image = $scope.photo;
