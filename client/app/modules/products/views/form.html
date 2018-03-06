@@ -69,7 +69,7 @@
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="metalFinish"
-            ng-options="item as item for item in metalfinish "></select>
+            ng-options="item as item.name for item in metalfinish "></select>
 
       </div>
       <label class="control-label col-sm-2" for="pwd">Material(Type):</label>
@@ -77,35 +77,35 @@
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="materialType"
-              ng-options="item as item for item in metaltype "></select>
+              ng-options="item as item.name for item in materialtype "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Earring Size:</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="earringSize"
-              ng-options="item as item for item in earringsize "></select>
+              ng-options="item as item.size for item in earringsize "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Stone Type:</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="stoneType"
-            ng-options="item as item for item in stonetype "></select>
+            ng-options="item as item.name for item in stonetype "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Necklace Length(W/O Thread/Chain):</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="necklaceLength"
-            ng-options="item as item for item in necklacelength "></select>
+            ng-options="item as item.size for item in necklacelength "></select>
       </div>
       <label class="control-label col-sm-2" for="pwd">Stone Color</label>
       <div class="col-sm-2">
         <select class="form-control"
             ng-disabled="isDisabled"
             ng-model="stoneColor"
-            ng-options="item as item for item in stonecolor "></select>
+            ng-options="item as item.name for item in stonecolor "></select>
       </div>
 
     </div>

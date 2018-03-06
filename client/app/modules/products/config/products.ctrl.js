@@ -3,15 +3,38 @@
   'use strict';
   angular
     .module('com.module.products')
-    .controller('productCtrl', function ($scope,CoreService,SettingService, vendorService,Product,Futures,Category,$state, $log) {
+    .controller('productCtrl', function (
+      $scope,CoreService,
+      SettingService,
+       vendorService,
+       Product,
+       Futures,
+       Category,
+       $state,
+        $log,
+        Metalfinish,
+        Materialtype,
+        Earringsize,
+        Necklacelength,
+        Stonecolor,
+        Stonetype
+      ) {
       $scope.action = 'Add';
       $scope.category = [];
       $scope.selectedCategory;
+      $scope.metalFinish;
+      $scope.meterialType;
+      $scope.earringSize;
+      $scope.stoneColor;
+      $scope.stoneType;
+      $scope.necklaceLength;
+      
       $scope.product = {};
       $scope.vendor = [];
       $scope.isDisabled = false;
-      $scope.metaltype=[];
-      $scope.metal_finish=[];
+      $scope.meterialtype=[];
+
+      $scope.metalfinish=[];
       $scope.stonecolor=[];
       $scope.earringsize=[];
       $scope.necklacelength=[];
@@ -29,26 +52,49 @@ reader.onload = function (e) {
 }
 reader.readAsDataURL(file);
 };
-Futures.
-find().$promise.then((result)=>{
-  $scope.metalfinish = result[0].options;
-  $scope.metaltype=result[1].options;
-  $scope.stonecolor=result[3].options;
-    $scope.stonetype=result[4].options;
-  $scope.earringsize=result[2].options;
-  $scope.necklacelength=result[5].options;
-  $scope.accessories=[];
-  console.log($scope.metalfinish);
-})
-vendorService.find().then((result)=>{
-  $scope.vendor = result;
-})
+Metalfinish
+.find()
+.$promise
+.then((result)=>{
+  $scope.metalfinish = result;
+$scope.metalFinish = $scope.metalFinish || result[0];
+});
 
-Futures
-.find().$promise.then((futures)=>{
-  $scope.futures=futures;
-  console.log($scope.futures);
-})
+Materialtype
+.find()
+.$promise
+.then((result)=>{
+  $scope.materialtype = result;
+$scope.materialType = $scope.materialType || result[0];
+});
+Earringsize
+.find()
+.$promise
+.then((result)=>{
+  $scope.earringsize = result;
+$scope.earringSize = $scope.earringSize || result[0];
+});
+Stonecolor
+.find()
+.$promise
+.then((result)=>{
+  $scope.stonecolor = result;
+$scope.stoneColor = $scope.stoneColor || result[0];
+});
+Stonetype
+.find()
+.$promise
+.then((result)=>{
+  $scope.stonetype = result;
+$scope.stonetype = $scope.stonetype || result[0];
+});
+Necklacelength
+.find()
+.$promise
+.then((result)=>{
+  $scope.necklacelength = result;
+$scope.necklaceLength = $scope.necklaceLength || result[0];
+});
       Category
         .find()
         .$promise
@@ -90,12 +136,12 @@ Futures
           });
       };
 
-    })     .controller('editproductCtrl', function ($scope,$q,$stateParams,CoreService,Futures, Product,Category,$state, $log) {
+    })     .controller('editproductCtrl', function ($scope,$q,$stateParams,CoreService,Metalfinish, Product,Category,$state, $log) {
       $scope.action = 'Edit';
+      $scope.metalfinish=[];
       $scope.category = [];
       $scope.selectedCategory;
       $scope.metalFinish;
-      $scope.futures=[];
       $scope.product = {};
       $scope.isDisabled = false;
 
@@ -116,28 +162,37 @@ reader.readAsDataURL(file);
       .all([
       Category.find().$promise,
        Product.findById({ id: $stateParams.productId }).$promise,
-       Futures.find().$promise
+       Metalfinish.find().$promise
       ])
       .then(function(data) {
         console.log('this is data from product edit',data)
         var category = $scope.category = data[0];
+        var metalfinish = $scope.metalfinish = data[2];
         $scope.product= data[1];
-        $scope.futures = data[2];
         $scope.selectedCategory;
-        $scope.metalFinish = $scope.futures[0].options;
-  console.log('this is data from product edit',$scope.futures[0].options)
+        $scope.metalFinish;
+        var selectedMetalfinishIndex = metalfinish
+          .map(function(metalfinish) {
+            console.log(metalfinish.id);
+            return metalfinish.id;
+          })
+          .indexOf($scope.product.metal_finish);
+
         var selectedCategoryIndex = category
           .map(function(category) {
             return category.id;
           })
           .indexOf($scope.product.categoryId);
         $scope.selectedCategory = category[selectedCategoryIndex];
+  $scope.metalFinish = metalfinish[selectedMetalfinishIndex];
+                console.log($scope.metalFinish);
       });
 
 
           $scope.submitForm = function() {
      $scope.product.image = $scope.photo;
       $scope.product.categoryId = $scope.selectedCategory.id;
+      $scope.product.metal_finish = $scope.metalFinish.id;
       $scope.product
         .$save()
         .then(function(product) {

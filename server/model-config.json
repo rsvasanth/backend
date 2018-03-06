@@ -129,5 +129,29 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "Metalfinish": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Materialtype": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Earringsize": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Stonetype": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Stonecolor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Necklacelength": {
+    "dataSource": "db",
+    "public": true
   }
 }
