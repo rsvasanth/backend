@@ -28,7 +28,7 @@
       $scope.stoneColor;
       $scope.stoneType;
       $scope.necklaceLength;
-      
+
       $scope.product = {};
       $scope.vendor = [];
       $scope.isDisabled = false;
@@ -192,7 +192,7 @@ reader.readAsDataURL(file);
           $scope.submitForm = function() {
      $scope.product.image = $scope.photo;
       $scope.product.categoryId = $scope.selectedCategory.id;
-      $scope.product.metal_finish = $scope.metalFinish.id;
+      $scope.product.metal_finish = $scope.metalFinish;
       $scope.product
         .$save()
         .then(function(product) {
