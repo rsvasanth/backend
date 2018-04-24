@@ -22,13 +22,13 @@ module.exports = function (grunt) {
     dist: 'dist',
     api: {
       development: 'http://localhost:3000/api/',
-      production: 'http://192.168.43.76:3000/api/'
+      production: 'http://159.89.168.71:3000/api/'
     },
     site: {
       development: 'http://localhost:3000',
-      production: 'http://192.168.43.76:3000'
+      production: 'http://159.89.168.71:3000'
     },
-    host: 'localhost'
+    host: '159.89.168.71'
   };
 
   // Define the configuration for all the tasks

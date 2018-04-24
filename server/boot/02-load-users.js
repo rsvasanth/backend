@@ -19,6 +19,7 @@ module.exports = function(app) {
     var Role = app.models.Role;
     var RoleMapping = app.models.RoleMapping;
 
+  
     var users = [];
     var roles = [{
       name: 'admin',
@@ -29,19 +30,24 @@ module.exports = function(app) {
         username: 'admin',
         password: 'admin'
       }]
-    },{
-      name: 'staff',
-        users:[{}]
-  
-    },
-      {
-      name: 'customer',
-           users:[{}]
-
+    }, {
+      name: 'users',
+      users: [{
+        firstName: 'Guest',
+        lastName: 'User',
+        email: 'user@user.com',
+        username: 'user',
+        password: 'user'
+      }]
     },{
       name: 'vendor',
-         users:[{}]
-   
+      users: [{
+        firstName: 'Vendor',
+        lastName: 'Vendor',
+        email: 'vendor@vendor.com',
+        username: 'vendor',
+        password: 'vendor'
+      }]
     }];
 
     roles.forEach(function(role) {
