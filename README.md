@@ -7,15 +7,12 @@ Installation depends on `node`/`npm` with `grunt` and `bower` installed globally
 
     $ npm install -g bower grunt-cli
 
-### The one-liner install (please create an [issue](https://github.com/beeman/loopback-angular-admin/issues/new) if this one does not work!)
-
-    git clone https://github.com/beeman/loopback-angular-admin.git && cd loopback-angular-admin && npm install && grunt build && grunt serve
 
 ### The steps above: 
 
 ### Checkout the project:
 
-    git clone https://github.com/beeman/loopback-angular-admin.git
+    git clone https://github.com/rsvasanth/backend.git
 
 ### Install the Node packages:
 
